@@ -21,7 +21,6 @@ def enviar_mensaje():
         return
 
     try:
-        # Calcula hora actual + 2 minutos para el envío
         ahora = datetime.now() + timedelta(minutes=2)
         hora = ahora.hour
         minuto = ahora.minute
@@ -43,8 +42,6 @@ def enviar_mensaje():
     except Exception as e:
         messagebox.showerror("Error al enviar", str(e))
 
-
-# Interfaz
 root = tk.Tk()
 root.title("Citas Médicas")
 root.geometry("400x350")
