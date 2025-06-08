@@ -13,7 +13,7 @@ import threading
 
 productos_extraidos = []
 
-# ---------- FUNCIÓN PRINCIPAL ----------
+
 def extraer_productos_exito():
     boton.config(state=DISABLED)
     etiqueta_status.config(text="Extrayendo productos, espera...")
@@ -24,11 +24,11 @@ def extraer_productos_exito():
         try:
             chrome_options = Options()
             chrome_options.add_argument("--disable-gpu")
-            # chrome_options.add_argument("--headless")
+            
 
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-            # Recorremos múltiples páginas
+           
             pagina = 0
             max_paginas = 5  # Puedes cambiarlo según la cantidad de páginas que desees
             while pagina < max_paginas:
@@ -44,7 +44,7 @@ def extraer_productos_exito():
 
                 cards = soup.find_all("article", class_="vtex-product-summary-2-x-container")
                 if not cards:
-                    break  # No hay más productos
+                    break  
 
                 for card in cards:
                     nombre_tag = card.find("span", class_="vtex-product-summary-2-x-productBrand")
@@ -83,7 +83,7 @@ def exportar_excel():
     df.to_excel(archivo, index=False)
     messagebox.showinfo("Exportación Exitosa", f"Productos exportados a '{archivo}'.")
 
-# ---------- INTERFAZ GRÁFICA ----------
+
 ventana = Tk()
 ventana.title("📦 Productos Éxito - Colección Colchones")
 ventana.geometry("780x500")
