@@ -17,7 +17,7 @@ def enviar_mensaje():
         return
 
     if estado == "si" and not numero.startswith('+'):
-        messagebox.showerror("Debe ingresar un número válido con código de país (ej: +57...)")
+        messagebox.showerror("error", "Debe ingresar un número válido con código de país (ej: +57...)")
         return
 
     try:
@@ -41,6 +41,8 @@ def enviar_mensaje():
 
     except Exception as e:
         messagebox.showerror("Error al enviar", str(e))
+
+
 
 root = tk.Tk()
 root.title("Citas Médicas")
